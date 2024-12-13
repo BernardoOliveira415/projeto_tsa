@@ -1,2 +1,2 @@
-# projeto_tsa
-# alunos :Bernardo Oliveira e Ricardo Ferreira
+# Projeto_TSA
+# Alunos: Bernardo Oliveira / Ricardo Ferreira
