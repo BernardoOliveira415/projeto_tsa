@@ -12,18 +12,17 @@ function menu() {
   echo "Escolha um jogo: "
 }
 
-
 #Jogo 1: Roleta
 function roleta() {
-  echo "Bem-vindo à Roleta!"
-  echo "Escolha 0 e 36: "
+  echo "🎡 Bem-vindo à Roleta!"
+  echo "Escolha um número entre 0 e 36: "
   read aposta
   numero=$(shuf -i 0-36 -n 1)
-   echo "girou e parou no número $numero."
+   echo "A roleta girou e parou no número $numero."
       if [[ $aposta -eq $numero ]]; then
-          echo "voce ganhou"
+          echo "🎉 Parabéns! Você ganhou!"
       else
-        echo "voce perdeu"
+        echo "💔 Você perdeu. Tente novamente!"
       fi
 }
 
@@ -35,7 +34,7 @@ function slotmachine() {
     slot2=$(shuf -e "${simbolos[@]}" -n 1)
     slot3=$(shuf -e "${simbolos[@]}" -n 1)
   echo "| $slot1 | $slot2 | $slot3 |"
-    if [[ $slot1 === $slot2 | $slot2 === $slot3 ]]; then
+    if [[ $slot1 == $slot2 && $slot2 == $slot3 ]]; then
           echo "🎉 Jackpot! Você ganhou!"
     else
         echo "💔 Sem premio. Tente novamente!"
