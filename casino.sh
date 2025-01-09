@@ -20,9 +20,24 @@ function roleta() {
   read aposta
   numero=$(shuf -i 0-36 -n 1)
    echo "girou e parou no número $numero."
-      if [[ $aposta $numero ]]; then
+      if [[ $aposta -eq $numero ]]; then
           echo "voce ganhou"
       else
         echo "voce perdeu"
       fi
+}
+
+#Jogo 2: slot machine
+function slotmachine() {
+  echo "🎰 Bem-vindo á slot machine!"
+  simbolos=("🍒" "🍋" "🍊" "⭐" "💎")
+    slot1=$(shuf -e "${simbolos[@]}" -n 1)
+    slot2=$(shuf -e "${simbolos[@]}" -n 1)
+    slot3=$(shuf -e "${simbolos[@]}" -n 1)
+  echo "| $slot1 | $slot2 | $slot3 |"
+    if [[ $slot1 === $slot2 | $slot2 === $slot3 ]]; then
+          echo "🎉 Jackpot! Você ganhou!"
+    else
+        echo "💔 Sem premio. Tente novamente!"
+   fi
 }
