@@ -40,3 +40,38 @@ function slotmachine() {
         echo "💔 Sem premio. Tente novamente!"
    fi
 }
+
+#Jogo 3: guess the number
+function adivinha() {
+  echo "🔢 Bem-vindo ao Jogo de guess the number!"
+   numero=$(shuf -i 1-10 -n 1)
+  tentativas=3
+    while [[ $tentativas -gt 0 ]]; do
+       echo "Adivinhe um número entre 1 e 10 (tentativas restantes: $tentativas):"
+        read aposta
+     if [[ $aposta -eq $numero ]]; then
+       echo "🎉 Parabéns! Você acertou!"
+       return
+      elif [[ $aposta -lt $numero ]]; then
+       echo "📉 Muito baixo!"
+     else
+      echo "📈 Muito alto!"
+    fi
+    ((tentativas--))
+  done
+  echo "💔 Você perdeu. O número era $numero."
+}
+
+#Loop principal
+while true; do
+  menu
+  read opcao
+  case $opcao in
+    1) roleta ;;
+    2) slotmachine ;;
+    3) adivinha ;;
+    4) echo "Obrigado por jogar! Até a próxima!"; exit ;;
+    *) echo "Opção inválida. Tente novamente." ;;
+  esac
+  echo "========================"
+done
